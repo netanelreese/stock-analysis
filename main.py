@@ -23,8 +23,13 @@ data = data[["Date", "Open", "High", "Low",
 data.reset_index(drop=True, inplace=True)
 print(data.head())
 
+# Candlestick Graph
 figure = go.Figure(data=[go.Candlestick(x=data["Date"],
                                         open=data["Open"], high=data["High"],
                                         low=data["Low"], close=data["Close"])])
-figure.update_layout(title = "Google Stock Price Analysis", xaxis_rangeslider_visible=False)
+figure.update_layout(title = "Boeing Stock Price Analysis", xaxis_rangeslider_visible=False)
+figure.show()
+
+# Bar Plot
+figure = px.bar(data, x = "Date", y= "Close")
 figure.show()
